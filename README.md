@@ -48,6 +48,7 @@ python -m venv venv
 source venv/bin/activate   # Linux / WSL
 # venv\Scripts\activate    # Windows
 pip install -r requirements.txt
+```
 
 
 ## 📈 Wyniki testów obciążeniowych
