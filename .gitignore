@@ -1,0 +1,32 @@
+# Pliki generowane przez testy i porównania
+*.csv
+*.png
+
+# Pliki baz danych (SQLite, DuckDB)
+*.db
+*.db-shm
+*.db-wal
+
+# Środowisko wirtualne
+venv/
+venv_medium_quest/
+*.venv/
+
+# Pliki skompilowane Pythona
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Pliki konfiguracyjne IDE / edytora
+.vscode/
+.idea/
+
+# Pliki środowiskowe (często zawierają hasła)
+.env
+.env.*
+
+# Inne pliki tymczasowe
+*.log
+*.tmp
+*.lock

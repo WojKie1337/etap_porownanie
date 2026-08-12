@@ -1,0 +1,61 @@
+services:
+  # MongoDB
+  mongodb:
+    image: mongo:latest
+    container_name: notes_mongodb
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_DATABASE: notes_db
+    volumes:
+      - mongodb_data:/data/db
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "mongosh", "--eval", "db.adminCommand('ping')"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+  
+  # PostgreSQL
+  postgresql:
+    image: postgres:16
+    container_name: notes_postgresql
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: mojehaslo123
+      POSTGRES_DB: notes_db
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d notes_db"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+  
+  # MySQL
+  mysql:
+    image: mysql:latest
+    container_name: notes_mysql
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: notes_db
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+    volumes:
+      - mysql_data:/var/lib/mysql
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "user", "-ppassword"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+volumes:
+  mongodb_data:
+  postgres_data:
+  mysql_data:
