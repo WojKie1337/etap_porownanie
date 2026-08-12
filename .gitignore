@@ -1,6 +1,6 @@
 # Pliki generowane przez testy i porównania
 *.csv
-*.png
+# *.png
 
 # Pliki baz danych (SQLite, DuckDB)
 *.db
