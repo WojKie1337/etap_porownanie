@@ -48,3 +48,16 @@ python -m venv venv
 source venv/bin/activate   # Linux / WSL
 # venv\Scripts\activate    # Windows
 pip install -r requirements.txt
+
+
+## 📈 Wyniki testów obciążeniowych
+
+Poniżej przedstawiono wykresy porównawcze średnich czasów odpowiedzi oraz liczby błędów dla każdej bazy.
+
+### Średni czas odpowiedzi (ms)
+
+![Średni czas odpowiedzi](docs/img/czasy_odpowiedzi.png)
+
+### Liczba błędów
+
+![Liczba błędów](docs/img/liczba_bledow.png)
